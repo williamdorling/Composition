@@ -7,9 +7,11 @@ import vehicles.Vehicle;
 public class Helicopter extends Vehicle implements IAirVehicle, IMotorised {
 
     private double maxAltitude;
+    private IMotorised engine;
 
-    public Helicopter(float weight, int maxSpeed, IProduct baseProduct, double maxAltitude){
+    public Helicopter(float weight, int maxSpeed, IProduct baseProduct, IMotorised engine,double maxAltitude){
         super(weight, maxSpeed,baseProduct);
+        this.engine = engine;
         this.maxAltitude = maxAltitude;
     }
 
@@ -23,14 +25,22 @@ public class Helicopter extends Vehicle implements IAirVehicle, IMotorised {
         this.maxAltitude = maxAltitude;
     }
 
+    public IMotorised getEngine() {
+        return engine;
+    }
+
+    public void setEngine(IMotorised engine) {
+        this.engine = engine;
+    }
+
     @Override
     public void startEngine() {
-        
+        this.engine.startEngine();
     }
 
     @Override
     public void stopEngine() {
-
+        this.engine.stopEngine();
     }
 
     @Override

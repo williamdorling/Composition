@@ -1,3 +1,5 @@
+import air.Helicopter;
+import air.Glider;
 import products.IProduct;
 import products.Product;
 import vehicles.Bicycle;
@@ -29,6 +31,30 @@ public class Runner {
 
         Engine newEngine = new Engine(200, 500);
         car.setEngine(newEngine);
+
+        Helicopter helicopter = new Helicopter(
+                1000,
+                150,
+                new Product(120000, 4, "Chopper"),
+                new Engine(150, 700),
+                400
+        );
+
+        vehicles.add(helicopter);
+
+        Glider glider = new Glider(
+                120,
+                50,
+                new Product(20000, 1, "Hang Glider"),
+                75
+        );
+        vehicles.add(glider);
+
+        helicopter.startEngine();
+
+        for (Vehicle vehicle:vehicles) {
+            System.out.println(vehicle.getTitle());
+        }
 
     }
 }
