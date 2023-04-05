@@ -8,11 +8,13 @@ public class Helicopter extends Vehicle implements IAirVehicle, IMotorised {
 
     private double maxAltitude;
     private IMotorised engine;
+    private Radar radar;
 
-    public Helicopter(float weight, int maxSpeed, IProduct baseProduct, IMotorised engine,double maxAltitude){
+    public Helicopter(float weight, int maxSpeed, IProduct baseProduct, IMotorised engine,double maxAltitude, Radar radar){
         super(weight, maxSpeed,baseProduct);
         this.engine = engine;
         this.maxAltitude = maxAltitude;
+        this.radar = radar;
     }
 
     @Override
@@ -23,6 +25,14 @@ public class Helicopter extends Vehicle implements IAirVehicle, IMotorised {
     @Override
     public void setMaxAltitude(double maxAltitude) {
         this.maxAltitude = maxAltitude;
+    }
+
+    public Radar getRadar() {
+        return radar;
+    }
+
+    public void setRadar(Radar radar) {
+        this.radar = radar;
     }
 
     public IMotorised getEngine() {

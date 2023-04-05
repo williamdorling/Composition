@@ -1,5 +1,6 @@
 import air.Helicopter;
 import air.Glider;
+import air.Radar;
 import products.IProduct;
 import products.Product;
 import vehicles.Bicycle;
@@ -12,7 +13,7 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        ArrayList<IProduct> vehicles = new ArrayList<>();
 
         Bicycle bike = new Bicycle(
                 10,
@@ -37,7 +38,8 @@ public class Runner {
                 150,
                 new Product(120000, 4, "Chopper"),
                 new Engine(150, 700),
-                400
+                400,
+                new Radar("RADARCO", 314159, 700, new Product(20000,1, "radar"))
         );
 
         vehicles.add(helicopter);
@@ -52,7 +54,7 @@ public class Runner {
 
         helicopter.startEngine();
 
-        for (Vehicle vehicle:vehicles) {
+        for (IProduct vehicle:vehicles) {
             System.out.println(vehicle.getTitle());
         }
 
